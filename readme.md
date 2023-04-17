@@ -22,7 +22,6 @@ If these issues don't matter for your intended use, or you know how to fix them,
   - [Jest plugin](https://www.npmjs.com/package/eslint-plugin-jest)
   - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to make Prettier and ESLint play nice together.
 - [Jest](https://jestjs.io) (can be substituted with [`tap`](https://www.npmjs.com/package/tap))
-  - Accompanied by [Supertest](https://www.npmjs.com/package/supertest) to test API calls. Not needed if you do proper DI with something like [NestJS](https://nestjs.com/).
 - [GitHub Action workflows](https://github.com/features/actions) set up to run tests and formatting+linting on push
 
 ## Running the app
@@ -43,7 +42,7 @@ npm run start
 
 ## Testing
 
-### Jest with supertest
+### Jest
 
 ```
 npm run test
