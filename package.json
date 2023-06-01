@@ -1,6 +1,6 @@
 {
   "name": "typescript-skeleton",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple TypeScript skeleton for easy tasks. For anything more complex, a DDD structure is recommended.",
   "main": "src/app.ts",
   "scripts": {
