@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    es2021: true,
+    es2022: true,
     node: true,
   },
   extends: [
@@ -13,12 +13,9 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['*.ts', '*.tsx'],
-      parserOptions: {
-        project: ['./tsconfig.json'],
+      env: {
+        jest: true,
       },
-    },
-    {
       files: ['test/**'],
       plugins: ['jest'],
       extends: ['plugin:jest/recommended', 'prettier'],
@@ -231,7 +228,11 @@ module.exports = {
     'dot-notation': 'off',
     '@typescript-eslint/dot-notation': 'error',
     'lines-between-class-members': 'off',
-    '@typescript-eslint/lines-between-class-members':["warn", "always", { "exceptAfterSingleLine": true, 'exceptAfterOverload': true }], // No support from Prettier for this https://github.com/prettier/prettier/issues/1603
+    '@typescript-eslint/lines-between-class-members': [
+      'warn',
+      'always',
+      { exceptAfterSingleLine: true, exceptAfterOverload: true },
+    ], // No support from Prettier for this https://github.com/prettier/prettier/issues/1603
     'no-await-in-loop': 'warn',
     'no-constructor-return': 'error',
     'import/order': [
@@ -257,5 +258,8 @@ module.exports = {
       },
     ],
     'import/newline-after-import': ['error', { count: 1 }],
+  },
+  settings: {
+    'import/resolver': ['typescript'],
   },
 };
