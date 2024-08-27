@@ -1,54 +1,39 @@
 {
-  "name": "typescript-skeleton",
-  "version": "1.0.2",
-  "type": "module",
-  "description": "A simple TypeScript skeleton for easy tasks. For anything more complex, a DDD structure is recommended.",
-  "main": "src/app.ts",
-  "scripts": {
-    "start": "node ./dist/src/app.js",
-    "dev": "ts-node-dev --rs --transpile-only ./src/app.ts",
-    "dev:debug": "ts-node-dev --inspect --rs --transpile-only ./src/app.ts",
-    "build": "tsc -p tsconfig.build.json",
-    "build:prod": "tsc -p tsconfig.build.prod.json",
-    "lint": "eslint --ignore-path .gitignore . --ext .ts --no-error-on-unmatched-pattern",
-    "lint:fix": "npm run lint -- --fix",
-    "prettier": "npx prettier src test --check --no-error-on-unmatched-pattern",
-    "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix",
-    "test": "jest --verbose --detectOpenHandles"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BoscoDomingo/typescript-skeleton.git"
-  },
-  "keywords": [
-    "skeleton",
-    "typescript"
-  ],
-  "author": "Bosco Domingo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/BoscoDomingo/typescript-skeleton/issues"
-  },
-  "homepage": "https://github.com/BoscoDomingo/typescript-skeleton#readme",
-  "dependencies": {
-    "dotenv": "^16.0.3"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.17",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.11",
-    "@types/supertest": "^2.0.12",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
-    "eslint": "^8.38.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jest": "^27.2.1",
-    "prettier": "2.8.7",
-    "ts-jest": "^29.1.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.0.4"
-  }
+	"name": "typescript-skeleton",
+	"version": "3.0.0",
+	"type": "module",
+	"description": "A simple TypeScript skeleton for easy tasks. For anything more complex, a DDD structure is recommended.",
+	"main": "src/app.ts",
+	"scripts": {
+		"start": "node --env-file .env ./dist/app.js",
+		"dev": "tsx --watch ./src/app.ts --env-file .env",
+		"dev:debug": "pnpm dev --inspect",
+		"build": "tsc -p tsconfig.json",
+		"lint": "pnpm exec biome check .",
+		"format": "pnpm exec biome check --write .",
+		"format:ci": "pnpm exec biome ci . --diagnostic-level=error",
+		"test": "glob test/**/*.test.ts -c 'tsx --test'",
+		"test:debug": "pnpm test -- --inspect-wait"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/BoscoDomingo/typescript-skeleton.git"
+	},
+	"keywords": [
+		"skeleton",
+		"typescript"
+	],
+	"author": "Bosco Domingo",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/BoscoDomingo/typescript-skeleton/issues"
+	},
+	"homepage": "https://github.com/BoscoDomingo/typescript-skeleton#readme",
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/node": "^22.5.0",
+		"glob": "^11.0.0",
+		"tsx": "^4.19.0",
+		"typescript": "^5.5.4"
+	}
 }

@@ -3,26 +3,23 @@ name: test
 on: push
 
 jobs:
-  test:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - uses: actions/setup-node@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
 
       - name: Test
-        run: npm run test
+        run: pnpm test
