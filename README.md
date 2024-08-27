@@ -20,7 +20,8 @@ or if you want a simple API, check out my [TypeScript API Template](https://gith
 
 - [TypeScript](https://www.typescriptlang.org/)
   - Find other `tsconfig.json` options [here](https://github.com/tsconfig/bases#centralized-recommendations-for-tsconfig-bases)
-- [ts-node-dev](https://github.com/wclr/ts-node-dev)
+- [tsx](https://tsx.is/)
+- [pnpm](https://pnpm.io/)
 - [Pure DI](https://blog.ploeh.dk/2014/06/10/pure-di/). If you prefer using containers, check out:
   - [tsyringe](https://github.com/microsoft/tsyringe)
   - [typescript-ioc](https://www.npmjs.com/package/typescript-ioc)
